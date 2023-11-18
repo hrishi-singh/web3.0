@@ -14,7 +14,7 @@ struct TransferStruct{
 }
 TransferStruct[] transactions;
 
-function addtoBtransactionschain(address payable receiver,uint amount,string memory message,string memory keyword) public{
+function addtoBlockchain(address payable receiver,uint amount,string memory message,string memory keyword) public{
     txnCnt+=1;
     transactions.push(TransferStruct(msg.sender,receiver,amount,message,block.timestamp,keyword));
     emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);

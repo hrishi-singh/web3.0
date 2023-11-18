@@ -9,14 +9,19 @@ const getEthereumContract=() =>{
     const provider=new ethers.providers.Web3Provider(ethereum);
     const signer=provider.getSigner();
     const txnContract=new ethers.Contract(contractaddress,contractABI,signer);
-
+    console.log({
+        provider,
+        signer,
+        txnContract
+    });
     return txnContract;
 }
 
 export const TransactionProvider=({children})=>{
     const [currentAccount,setCurrentAccount]=useState('');
     const [formData,setFormData]=useState({addressTo:'',amount:'',keyword:'',message:''});
-
+    const [isloading,setIsLoading]=useState(false);
+    const [txnCount, setTxnCount] = useState(localStorage.getItem('txnCount'));
     const handleChange=(e,name)=>{
         setFormData((prevState)=>({...prevState,[name]:e.target.value}));
     }
@@ -67,7 +72,16 @@ export const TransactionProvider=({children})=>{
 
                 }]
             });
-            txnContract.addToBlockchain(addressTo,parseAmt,message,keyword)
+            const txnHash=await txnContract.addtoBlockchain(addressTo,parseAmt,message,keyword);
+            setIsLoading(true);
+            console.log(`Loading-${txnHash.hash}`);
+            await txnHash.wait();
+            setIsLoading(false);
+            console.log(`Success-${txnHash.hash}`);
+
+            const txnCount=await txnContract.getTxncnt();
+            setTxnCount(txnCount.toNumber());
+
         } catch (error) {
             console.log(error);
             throw new Error("No ethereum object.")
