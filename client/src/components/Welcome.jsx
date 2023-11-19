@@ -18,7 +18,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 const Welcome = () => {
-  const {connectWallet,currentAccount,formData,sendTxn,handleChange} = useContext(TransactionContext);
+  const {connectWallet,currentAccount,formData,sendTxn,handleChange,isLoading} = useContext(TransactionContext);
   const handleSubmit=(e)=>{
     const {addressTo,amount,keyword,message}=formData;
     e.preventDefault();
@@ -28,13 +28,13 @@ const Welcome = () => {
  
   return (
     <div className="flex w-full justify-center items-center">
-      <div className="flex mf:flex-row flex  items-start justify-between md:p-20 py-12 px-4">
+      <div className="flex mf:flex-row flex-col  items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
-            Send Crypto <br /> across the world.
+            Send Crypto <br /> Across the Globe.
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Explore the crypto world. Buy & sell cryptocurrencies on krypto.
+          Buy, Sell, and Trade Cryptocurrencies with Crypton.
           </p>
           {!currentAccount &&<button
             type="button"
@@ -43,6 +43,11 @@ const Welcome = () => {
           >
             <p className="text-white text-base font-semibold">Connect Wallet</p>
           </button>}
+          {currentAccount&& <p className="flex flex-row justify-center items-center my-5 bg-[#33b249] p-3 rounded-full cursor-pointer hover:bg-[#29923A]">
+            Wallet Connected
+          </p>
+
+          }
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10 ">
             <div className={`rounded-tl-2xl ${commonStyles}`}>Reliability</div>
             <div className={commonStyles}>Security</div>
@@ -95,9 +100,9 @@ const Welcome = () => {
               type="text"
               handleChange={handleChange}
             />
-            <div className="w-full bg-gray-400 my-2 h-[1px]">
+            <div className="w-full bg-gray-400 my-2 h-[1px]"/>
               {
-                false?(
+                isLoading?(
                   <Loader/>
                 ):
                 (
@@ -109,7 +114,6 @@ Send Now
                   </button>
                 )
               }
-            </div>
           </div>
         </div>
       </div>
