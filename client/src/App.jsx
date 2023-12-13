@@ -1,14 +1,23 @@
-import { Navbar,Welcome,Footer,Services,Transactions } from "./components"
+import { Navbar,Welcome,Exchange,Footer,Services,Transactions } from "./components"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 const App= ()=> {
   return (
     <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
+     <Router>
+     <div className="gradient-bg-welcome">
         <Navbar/>
-        <Welcome/>
+        <Routes>
+      <Route path="/" element={<><Welcome/><Services/><Transactions/></>}></Route>
+      <Route path="/exchange" element={<Exchange/>}></Route>
+      </Routes>
       </div>
-      <Services/>
-      <Transactions/>
+     
       <Footer/>
+     </Router>
     </div>
     )
 }

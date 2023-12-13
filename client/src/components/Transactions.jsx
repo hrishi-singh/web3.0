@@ -1,6 +1,5 @@
 import React,{useContext} from 'react'
 import { TransactionContext } from '../context/TransactionContext'
-import dummyData from '../utils/dummydata'
 import {shortenString} from '../utils/shortenString'
 
 const TransactionCard=({addressTo,addressFrom,timestamp,message,keyword,amount,url})=>{
