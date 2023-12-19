@@ -4,7 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+#react-select-3-placeholder{
 
+  color: red;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
