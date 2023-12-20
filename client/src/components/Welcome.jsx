@@ -17,14 +17,21 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 const Welcome = () => {
-  const {connectWallet,currentAccount,formData,sendTxn,handleChange,isLoading} = useContext(TransactionContext);
-  const handleSubmit=(e)=>{
-    const {addressTo,amount,keyword,message}=formData;
+  const {
+    connectWallet,
+    currentAccount,
+    formData,
+    sendTxn,
+    handleChange,
+    isLoading,
+  } = useContext(TransactionContext);
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
     e.preventDefault();
-    if(!addressTo || !amount || !keyword || !message) return;
+    if (!addressTo || !amount || !keyword || !message) return;
     sendTxn();
-  }
- 
+  };
+
   return (
     <div className="flex w-full justify-center items-center">
       <div className="flex mf:flex-row flex-col  items-start justify-between md:p-20 py-12 px-4">
@@ -33,9 +40,9 @@ const Welcome = () => {
             Send Crypto <br /> Across the Globe.
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-          Buy, Sell, and Trade Cryptocurrencies with Crypton.
+            Buy, Sell, and Trade Cryptocurrencies with Crypton.
           </p>
-         
+
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10 ">
             <div className={`rounded-tl-2xl ${commonStyles}`}>Reliability</div>
             <div className={commonStyles}>Security</div>
@@ -44,20 +51,24 @@ const Welcome = () => {
             <div className={commonStyles}>Low Fees</div>
             <div className={`rounded-br-2xl ${commonStyles}`}>Blockchain</div>
           </div>
-           {!currentAccount &&<button
-            type="button"
-            onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-          >
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
-          </button>}
-          {currentAccount&& <p className="flex flex-row justify-center items-center my-5 bg-[#33b249] p-3 rounded-full cursor-pointer hover:bg-[#29923A]">
-            Wallet Connected
-          </p>
-
-          }
+          {!currentAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            >
+              <p className="text-white text-base font-semibold">
+                Connect Wallet
+              </p>
+            </button>
+          )}
+          {currentAccount && (
+            <p className="flex flex-row justify-center items-center my-5 bg-[#33b249] p-3 rounded-full cursor-pointer hover:bg-[#29923A]">
+              Wallet Connected
+            </p>
+          )}
         </div>
-        
+
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
           <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorphism">
             <div className="flex justify-between flex-col w-full h-full">
@@ -68,7 +79,9 @@ const Welcome = () => {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">{shortenString(currentAccount)}</p>
+                <p className="text-white font-light text-sm">
+                  {shortenString(currentAccount)}
+                </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
                 </p>
@@ -101,27 +114,27 @@ const Welcome = () => {
               type="text"
               handleChange={handleChange}
             />
-            <div className="w-full bg-gray-400 my-2 h-[1px]"/>
-              {
-                isLoading?(
-                  <Loader/>
-                ):
-                (
-                  (currentAccount)?
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer">Send Now
-                  </button>:
-                   <button
-                   type="button"
-                   disabled
-                   className="text-white w-full mt-2 border-[1px] p-2 border-[#bfcbea] rounded-full">Connect Wallet
-                   </button>
-                )
-              }
+            <div className="w-full bg-gray-400 my-2 h-[1px]" />
+            {isLoading ? (
+              <Loader />
+            ) : currentAccount ? (
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
+              >
+                Send Now
+              </button>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="text-white w-full mt-2 border-[1px] p-2 border-[#bfcbea] rounded-full"
+              >
+                Connect Wallet
+              </button>
+            )}
           </div>
-      {/* <Services/> */}
         </div>
       </div>
     </div>
