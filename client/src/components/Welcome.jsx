@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
-import { Loader, Services } from "./";
+import { Loader} from "./";
 import { TransactionContext } from "../context/TransactionContext";
 import { shortenString } from "../utils/shortenString";
 const commonStyles =
