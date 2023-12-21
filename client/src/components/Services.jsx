@@ -3,8 +3,8 @@ import {BsShieldFillCheck} from 'react-icons/bs';
 import {BiSearchAlt} from 'react-icons/bi';
 import {RiHeart2Fill} from 'react-icons/ri';
 
-const ServiceCard=({color,title,icon,subtitle})=>(
-  <div className="flex flex-row justify-start items-center white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl">
+const ServiceCard=({color,title,icon,subtitle,dimension})=>(
+  <div className={`flex flex-row justify-start items-center white-glassmorphism p-3 m-2 hover:shadow-xl ${dimension}`}>
     <div className={`w-10 h-10 rounded-full flex justify-center items-center ${color}`}>
       {icon}
     </div>
@@ -12,7 +12,7 @@ const ServiceCard=({color,title,icon,subtitle})=>(
       <h1 className="mt-2 text-white text-lg">
         {title}
       </h1>
-      <p className="mt-2 text-white text-sm md:w-9/12">
+      <p className="mt-2 text-white text-sm ">
         {subtitle}
       </p>
 
@@ -44,7 +44,7 @@ const Services = () => {
     color="bg-[#F84550]"
     title="Fast Transaction"
     icon={<RiHeart2Fill fontSize={21} className='text-white'/>}
-    subtitle="Security is guaranteed. We always maintain privacy & quality of our products."/>
+    subtitle="Security is guaranteed. We always maintain privacy &  quality of our products."/>
      
       </div>
     </div>
