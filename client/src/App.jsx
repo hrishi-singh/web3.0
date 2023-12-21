@@ -1,9 +1,10 @@
-import { Navbar,Welcome,Exchange,Footer,Services,Transactions } from "./components"
+import { Navbar,Welcome,Exchange,Footer,Services,Transactions,Market } from "./components"
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+
 const App= ()=> {
   return (
     <div className="min-h-screen">
@@ -13,6 +14,7 @@ const App= ()=> {
         <Routes>
       <Route path="/" element={<><Welcome/><Services/><Transactions/></>}></Route>
       <Route path="/exchange" element={<Exchange/>}></Route>
+      <Route path="/market" element={<Market/>}></Route>
       </Routes>
       </div>
      
