@@ -1,17 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { ServiceCard } from "./Services";
-import { BiSearchAlt } from "react-icons/bi";
+import { MdQueryStats } from "react-icons/md";
 
 const Market = () => {
   const details = [
     ["Market Capacity", "MKTCAP"],
+    ["Last Volume", "LASTVOLUMETO"],
     ["Price", "PRICE"],
     ["Price Change (24H)", "CHANGE24HOUR"],
     ["Opening Price (24H)", "OPEN24HOUR"],
     ["High Price (24H)", "HIGH24HOUR"],
     ["Low Price (24H)", "LOW24HOUR"],
-    ["Last Volume", "LASTVOLUMETO"],
   ];
   const [stats, setStats] = useState([]);
   const STAT_URL =
@@ -40,13 +40,13 @@ const Market = () => {
             Ethereum <br /> Market Statistics
           </h1>
         </div>
-        <div className="flex-1 flex flex-row justify-center items-center flex-wrap">
+        <div className="flex-1 flex flex-row justify-center items-center flex-wrap p-10 ml-5 mr-5">
           {details.map((det)=>{
             return(
               <ServiceCard
             color="bg-[#8945F8]"
             title={det[0]}
-            icon={<BiSearchAlt fontSize={21} className="text-white" />}
+            icon={<MdQueryStats fontSize={21} className="text-white" />}
             subtitle={eval(`stats.${det[1]}`)}
             dimension="w-48 h-32"
           />
