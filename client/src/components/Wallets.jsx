@@ -1,9 +1,9 @@
 import React from 'react'
-
-const wallets = () => {
+import ComingSoon from './ComingSoon'
+const Wallets = () => {
   return (
-    <div>wallets</div>
+    <ComingSoon/>
   )
 }
 
-export default wallets
+export default Wallets
