@@ -6,3 +6,5 @@ export {default as Transactions} from './Transactions';
 export {default as Services} from './Services';
 export {default as Exchange} from './Exchange';
 export {default as Market} from './Market';
+export {default as Tutorials} from './Tutorials';
+export {default as Wallets} from './Wallets';

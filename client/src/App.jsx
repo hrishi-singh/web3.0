@@ -1,4 +1,4 @@
-import { Navbar,Welcome,Exchange,Footer,Services,Transactions,Market } from "./components"
+import { Navbar,Welcome,Exchange,Footer,Services,Transactions,Market,Tutorials,Wallets } from "./components"
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,6 +15,8 @@ const App= ()=> {
       <Route path="/" element={<><Welcome/><Services/><Transactions/></>}></Route>
       <Route path="/exchange" element={<Exchange/>}></Route>
       <Route path="/market" element={<Market/>}></Route>
+      <Route path="/tutorials" element={<Tutorials/>}></Route>
+      <Route path="/wallets" element={<Wallets/>}></Route>
       </Routes>
       </div>
      
