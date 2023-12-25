@@ -44,6 +44,7 @@ const Market = () => {
           {details.map((det)=>{
             return(
               <ServiceCard
+              key={det[0]}
             color="bg-[#8945F8]"
             title={det[0]}
             icon={<MdQueryStats fontSize={21} className="text-white" />}
