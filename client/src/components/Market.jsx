@@ -30,8 +30,6 @@ const Market = () => {
     stat_details();
   }, []);
 
-  console.log(stats.PRICE);
-
   return (
     <div className="flex w-full justify-center items-center">
       <div className="flex mf:flex-col flex-col  items-start justify-between md:p-20 py-12 px-4">

@@ -22,7 +22,7 @@ const customStyles = {
   }),
 };
 
-const Input = ({ placeholder, type, value, handleChange,disable}) => (
+const Input = ({ placeholder, type, value, handleChange, disable }) => (
   <input
     placeholder={placeholder}
     type={type}
@@ -80,7 +80,6 @@ const Exchange = () => {
     });
   };
   useEffect(() => {
-    // exch();
     coins();
     opt();
   }, []);
@@ -88,60 +87,59 @@ const Exchange = () => {
     opt();
   }, [coinsList]);
 
-  console.log(options);
-
   return (
     <div className="flex w-full justify-center items-center min-h-screen">
       <div className="flex mf:flex-row flex-col  items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start flex-col lg:flex-row mf:mr-10 max-w-fit items-center">
-            <img src={ETH_img} alt="Eth" className=" md:max-w-xs flex justify-center "/>
-            <div className="flex flex-1 justify-start flex-col mf:mr-10">
-              <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
-                Ethereum <br /> Converter.
-              </h1>
-              <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-                <Input
-                  placeholder="ETH Amount"
-                  name="amount"
-                  type="number"
-                  value={numberInput}
-                  handleChange={handleInputChange}
-                  disable={false}
-                />
+          <img
+            src={ETH_img}
+            alt="Eth"
+            className=" md:max-w-xs flex justify-center "
+          />
+          <div className="flex flex-1 justify-start flex-col mf:mr-10">
+            <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
+              Ethereum <br /> Converter.
+            </h1>
+            <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+              <Input
+                placeholder="ETH Amount"
+                name="amount"
+                type="number"
+                value={numberInput}
+                handleChange={handleInputChange}
+                disable={false}
+              />
 
-                <Select
-                  styles={customStyles}
-                  className="my-2 w-full rounded-sm p-2 outline-none bg-transparent border-none white-glassmorphism z-10"
-                  options={options}
-                  value={selectedOption}
-                  onChange={(selected) => setSelectedOption(selected)}
-                />
+              <Select
+                styles={customStyles}
+                className="my-2 w-full rounded-sm p-2 outline-none bg-transparent border-none white-glassmorphism z-10"
+                options={options}
+                value={selectedOption}
+                onChange={(selected) => setSelectedOption(selected)}
+              />
 
-                {
-                  <button
-                    type="button"
-                    onClick={handleConvert}
-                    className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
-                  >
-                    Convert Now
-                  </button>
-                }
-                <div>
-                  {/* <h1>Result: {result}</h1> */}
-                </div>
-                <Input
-                  placeholder="Result"
-                  name="amount"
-                  type="number"
-                  value={result}
-                  handleChange={handleInputChange}
-                  disable={true}
-                />
-              </div>
+              {
+                <button
+                  type="button"
+                  onClick={handleConvert}
+                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
+                >
+                  Convert Now
+                </button>
+              }
+              <Input
+                placeholder="Result"
+                name="amount"
+                type="number"
+                value={result}
+                handleChange={handleInputChange}
+                disable={true}
+              />
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
