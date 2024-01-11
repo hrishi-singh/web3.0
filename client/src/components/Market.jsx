@@ -15,13 +15,14 @@ const Market = () => {
   ];
   const [stats, setStats] = useState([]);
   const STAT_URL =
-    "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=INR&api_key=6a4234186f13b2ca0bef7921b1ff54662c76f2bf64a814af19f9267bbdd48662";
+    "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&api_key=6a4234186f13b2ca0bef7921b1ff54662c76f2bf64a814af19f9267bbdd48662";
 
   const stat_details = async () => {
     fetch(`${STAT_URL}`)
       .then((response) => response.json())
       .then((data) =>
         setStats(Object.entries(Object.entries(data)[1][1].ETH)[0][1])
+        // console.log(data)
       )
       .catch((error) => console.error("Error fetching data:", error));
   };
